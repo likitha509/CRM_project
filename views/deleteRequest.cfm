@@ -20,6 +20,6 @@ VALUES (
 </cfquery>
 
 <cflog file="activityLogs"
-text="User #session.username# updated request ID #url.id#"
+text="User #session.username# deleted request ID #url.id#"
 type="information">
 <cflocation url="/CRM_project/index.cfm?crm=viewRequests" addtoken="false">
