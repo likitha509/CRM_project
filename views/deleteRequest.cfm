@@ -7,7 +7,6 @@
 <cfset service = createObject("component","CRM_project.components.customerService")>
 
 <cfset service.deleteRequest(url.id)>
-
 <!-- Log delete action -->
 
 <cfquery datasource="myDB">
