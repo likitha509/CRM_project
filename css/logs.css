@@ -1,0 +1,89 @@
+body{
+font-family: Arial;
+background:#f4f6f9;
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+table{
+width:80%;
+margin:auto;
+border-collapse:collapse;
+background:white;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+th{
+background:#2f3e4e;
+color:white;
+padding:12px;
+}
+
+td{
+padding:10px;
+text-align:center;
+border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+background:#f2f2f2;
+}
+
+.pagination{
+text-align:center;
+margin-top:20px;
+}
+
+.pagination a{
+background:#2f3e4e;
+color:white;
+padding:8px 14px;
+margin:5px;
+text-decoration:none;
+border-radius:5px;
+}
+
+.pagination span{
+margin:0 10px;
+font-weight:bold;
+}
+
+.pagination a:hover{
+background:#1c2733;
+}
+
+.delete-btn{
+display:block;
+width:160px;
+margin:20px auto;
+padding:10px;
+background:#d9534f;
+color:white;
+text-align:center;
+border-radius:6px;
+text-decoration:none;
+}
+
+.delete-btn:hover{
+background:#c9302c;
+}
+/* Buttons / links style */
+.back-link{
+    background:#0d6efd;
+    color:white;
+    padding:8px 15px;
+    border-radius:5px;
+    margin:5px;
+    display:inline-block;
+    text-align: center;
+}
+
+/* Hover effect */
+.back-link:hover{
+    background:#084298;
+}
+
+

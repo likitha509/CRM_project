@@ -1,0 +1,86 @@
+/* Page background */
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#eef2f7;
+}
+
+/* Center form */
+.center-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* Form box */
+.form-box{
+    background:white;
+    padding:35px;
+    width:420px;
+    border-radius:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Heading */
+.form-box h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#2c3e50;
+}
+
+/* Labels */
+label{
+    display:block;
+    margin-top:12px;
+    font-weight:bold;
+}
+
+/* Inputs */
+input[type="text"],
+textarea,
+select{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    box-sizing:border-box;
+}
+
+/* Textarea height */
+textarea{
+    height:80px;
+    resize:none;
+}
+
+/* Submit button */
+input[type="submit"]{
+    width:100%;
+    padding:10px;
+    margin-top:18px;
+    background: #2c3e50;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* Hover */
+input[type="submit"]:hover{
+    background: #2c3e50
+}
+
+/* Back link */
+.back-link{
+    display:block;
+    text-align:center;
+    margin-top:15px;
+    text-decoration:none;
+    color: #2c3e50;
+}
+
+.back-link:hover{
+    text-decoration:underline;
+}
