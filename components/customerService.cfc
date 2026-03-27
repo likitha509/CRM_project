@@ -71,6 +71,11 @@ SELECT COUNT(*) AS total
 FROM requests
 WHERE 1=1
 
+<cfif session.is_admin NEQ 1>
+AND created_by =
+<cfqueryparam value="#session.username#" cfsqltype="cf_sql_varchar">
+</cfif>
+
 <cfif len(arguments.search)>
 AND title LIKE
 <cfqueryparam value="%#arguments.search#%" cfsqltype="cf_sql_varchar">

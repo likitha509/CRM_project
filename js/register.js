@@ -3,10 +3,10 @@ function validateRegister(){
     let password = document.getElementById("password").value;
     let confirmPassword = document.getElementById("confirmPassword").value;
 
-    let passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
-
+    // Fixed pattern
+    let passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if(!passwordPattern.test(password)){
-        alert("Password must contain letter, number, special character and be at least 8 characters");
+        alert("Password must contain at least 1 CAPITAL, 1 small letter, 1 number, 1 special character and be 8+ characters");
         return false;
     }
 

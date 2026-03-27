@@ -9,12 +9,28 @@
 
 <cfif structKeyExists(form, "profilePic")>
 
-    <!-- Upload file -->
+    <!--- Get old photo --->
+    <cfquery name="getOld">
+        SELECT profile_pic 
+        FROM users 
+        WHERE username = 
+        <cfqueryparam value="#session.username#" cfsqltype="cf_sql_varchar">
+    </cfquery>
+
+    <!--- Delete old file if exists --->
+    <cfif getOld.recordCount GT 0 AND len(getOld.profile_pic)>
+        <cfset oldPath = expandPath("/CRM_project/" & getOld.profile_pic)>
+        <cfif fileExists(oldPath)>
+            <cffile action="delete" file="#oldPath#">
+        </cfif>
+    </cfif>
+
+    <!-- Upload file (overwrite mode) -->
     <cffile
         action="upload"
         filefield="profilePic"
         destination="#expandPath('/CRM_project/uploads/')#"
-        nameconflict="makeunique">
+        nameconflict="overwrite">
 
     <!-- Resize image -->
     <cfimage
@@ -42,8 +58,6 @@
 
 <br>
 
-<a href="/CRM_project/index.cfm?crm=home" class="back-link">
-Go to Home
-</a>
+
 
 </div>
