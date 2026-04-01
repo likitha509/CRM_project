@@ -16,7 +16,7 @@ component {
     function onRequestEnd(){
         if (
             structKeyExists(url, "crm") AND
-            NOT listFindNoCase("login,LoginCheck,register,home,logout,forgotPassword,sendResetLink,resetPassword,SendOtp", url.crm)
+            NOT listFindNoCase("login,LoginCheck,register,home,logout,forgotPassword,sendResetLink,resetPassword,SendOtp,searchRequest", url.crm)
         ) {
             include "views/common/footer.cfm";
         }
