@@ -12,10 +12,6 @@ if(name=="" || email=="" || phone=="" || city==""){
 alert("Please fill all fields");
 return;
 }
-if(name=="" || email=="" || phone=="" || city==""){
-alert("Please fill all fields");
-return;
-}
 
 let phonePattern = /^[0-9]{10}$/;
 

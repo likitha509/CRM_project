@@ -10,7 +10,8 @@
 <input type="password" name="password" id="password" required 
 pattern="^(?=.*[!@#$%^&*]).{8,}$"
 title="Password must contain at least one special character">
-
+<label>Confirm Password</label>
+<input type="password" id="confirmPassword" required />
 <label>Email</label>
 <input type="email" name="email" required />
 <input type="submit" value="Register" />
