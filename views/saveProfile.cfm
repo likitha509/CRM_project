@@ -2,14 +2,46 @@
 
 <!-- Login Check -->
 <cfif NOT structKeyExists(session, "loggedIn")>
-<cflocation url="/CRM_project/index.cfm?crm=login" addtoken="false">
+    <cflocation url="/CRM_project/index.cfm?crm=login" addtoken="false">
 </cfif>
 
 <div class="upload-container">
 
+<cftry>
+
 <cfif structKeyExists(form, "profilePic")>
 
-    <!--- Get old photo --->
+    <!-- Upload file -->
+    <cffile
+        action="upload"
+        filefield="profilePic"
+        destination="#expandPath('/CRM_project/uploads/')#"
+        nameconflict="makeunique">
+
+    <!-- Validate file type -->
+    <cfset fileExt = lcase(cffile.serverFileExt)>
+
+    <cfif NOT listFind("jpg,jpeg,png", fileExt)>
+        
+        <!-- Delete invalid file -->
+        <cffile action="delete" file="#cffile.serverDirectory#/#cffile.serverFile#">
+
+        <script>
+            alert("Only JPG, JPEG, PNG files are allowed!");
+            window.history.back();
+        </script>
+
+        <cfabort>
+    </cfif>
+
+    <!-- File size check (2MB) -->
+    <cfif cffile.fileSize GT 2097152>
+        <cffile action="delete" file="#cffile.serverDirectory#/#cffile.serverFile#">
+        <cfoutput>File too large! Max 2MB allowed.</cfoutput>
+        <cfabort>
+    </cfif>
+
+    <!-- Get old photo -->
     <cfquery name="getOld">
         SELECT profile_pic 
         FROM users 
@@ -17,20 +49,13 @@
         <cfqueryparam value="#session.username#" cfsqltype="cf_sql_varchar">
     </cfquery>
 
-    <!--- Delete old file if exists --->
+    <!-- Delete old file -->
     <cfif getOld.recordCount GT 0 AND len(getOld.profile_pic)>
         <cfset oldPath = expandPath("/CRM_project/" & getOld.profile_pic)>
         <cfif fileExists(oldPath)>
             <cffile action="delete" file="#oldPath#">
         </cfif>
     </cfif>
-
-    <!-- Upload file (overwrite mode) -->
-    <cffile
-        action="upload"
-        filefield="profilePic"
-        destination="#expandPath('/CRM_project/uploads/')#"
-        nameconflict="overwrite">
 
     <!-- Resize image -->
     <cfimage
@@ -41,7 +66,7 @@
         destination="#cffile.serverDirectory#/#cffile.serverFile#"
         overwrite="yes">
 
-    <!-- Save image path -->
+    <!-- Save to DB -->
     <cfquery>
     UPDATE users
     SET profile_pic =
@@ -56,8 +81,12 @@
 
 </cfif>
 
+<cfcatch>
+    <cfoutput>Error uploading file!</cfoutput>
+</cfcatch>
+
+</cftry>
+
 <br>
-
-
 
 </div>
