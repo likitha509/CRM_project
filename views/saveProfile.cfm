@@ -82,7 +82,7 @@
 </cfif>
 
 <cfcatch>
-    <cfoutput>Error uploading file!</cfoutput>
+    <cfoutput>Error uploadinsg file!</cfoutput>
 </cfcatch>
 
 </cftry>
