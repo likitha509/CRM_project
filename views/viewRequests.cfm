@@ -13,9 +13,9 @@
 <cfparam name="url.department" default="">
 
 <h2 style="text-align:center;">All Requests</h2>
-
+ 
 <br><br>
-
+ 
 <!-- FILTER -->
 <form method="get" action="/CRM_project/index.cfm" style="text-align:center;">
     <input type="hidden" name="crm" value="viewRequests">
@@ -50,8 +50,25 @@
 </table>
 
 <br>
+<br><br>
+
+<div style="text-align:center;">
+
+    <a href="/CRM_project/views/generateReport.cfm?
+search=<cfoutput>#urlEncodedFormat(url.search)#</cfoutput>
+&department=<cfoutput>#urlEncodedFormat(url.department)#</cfoutput>">
+
+       Generate Report
+
+    </a>
+
+</div>
+
+<br>
 
 <div id="pagination" style="text-align:center;"></div>
+
+<br>
 <br>
 
 <!--  ONLY DATA PASSING -->
