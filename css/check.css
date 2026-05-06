@@ -1,0 +1,44 @@
+/* Full page background */
+body {
+  background: #4e6e8e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+/* Failure message box */
+.error-box {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  width: 320px;
+}
+
+/* Failure text */
+.error-text {
+  color: red;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Back button style */
+.back-link {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #34495e;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.back-link:hover {
+  background: #2c3e50;
+}
