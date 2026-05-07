@@ -8,10 +8,8 @@ component {
     this.sessionTimeout = createTimeSpan(0,0,30,0);
     //  Mappings
     this.mappings["/components"] = expandPath("/CRM_project/components");
+    
     function onApplicationStart(){
-
-    application.appName = "CRM";
-
     // Controller create
     application.controller = createObject("component", "components.controller");
 

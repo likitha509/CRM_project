@@ -39,41 +39,14 @@ function generateRow(req){
 
             |
 
-            <a href="#"
-               onclick="deleteRequest(${req.id})">
-
-               Delete
-
-            </a>
+            <a href="index.cfm?crm=deleteRequest&id=${req.id}">
+    Delete
+</a>
         </td>
     `);
 
     return row;
 
-}
-
-//  Delete Function
-function deleteRequest(id){
-
-  if(confirm("Delete this request?")){
-
-    fetch("index.cfm?crm=deleteRequest&id=" + id)
-    .then(res => res.text())
-    .then(() => {
-
-      alert("Deleted Successfully");
-
-      requestsData = requestsData.filter(r => r.id != id);
-
-      initPagination(requestsData, "#requestTable", "#pagination");
-
-    })
-    .catch(err => {
-      alert("Error deleting request");
-      console.error(err);
-    });
-
-  }
 }
 
 //  INIT

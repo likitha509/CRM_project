@@ -12,15 +12,7 @@
 
 <!-- If form submitted -->
 <cfif structKeyExists(form, "password")>
-
-    <!-- Backend validation -->
-    <cfif NOT reFind("^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$", form.password)>
-        <cfoutput>
-            Password must contain uppercase, lowercase, number, special character (min 8 chars)
-        </cfoutput>
-        <cfabort>
-    </cfif>
-
+    
     <!-- Hash password -->
     <cfset hashedPassword = hash(form.password, "SHA-256")>
 
